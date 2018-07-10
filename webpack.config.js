@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -7,6 +8,7 @@ module.exports = {
     another: './src/another-module.js'
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HTMLWebpackPlugin({
       title: 'Code Splitting'
     })

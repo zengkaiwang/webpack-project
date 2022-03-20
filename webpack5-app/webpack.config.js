@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './src/indexReact.js',
@@ -6,7 +7,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  mode: 'production',
+  mode: 'development',
   module: {
     rules: [
       {
@@ -22,5 +23,13 @@ module.exports = {
       }
     ]
   },
-  target: ['web', 'es5']
+  target: ['web', 'es5'],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    // contentBase: './dist',
+    static: './dist',
+    hot: true,
+  }
 }

@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+const ZipPlugin = require('./plugins/zip-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -68,6 +69,9 @@ module.exports = {
         },
       ]
     }),
+    new ZipPlugin({
+      filename: 'bundle'
+  })
   ],
   devServer: {
     // contentBase: './dist',

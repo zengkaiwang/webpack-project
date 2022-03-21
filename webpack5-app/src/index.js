@@ -1,4 +1,5 @@
 import { hello } from './hello'
+import './demo.txt'
 
 document.write(hello())
 

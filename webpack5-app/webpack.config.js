@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 
 module.exports = {
-  entry: './src/indexReact.js',
+  entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -24,6 +24,17 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader'
+        ]
+      },
+      {
+        test: /.txt$/,
+        use: [
+          {
+            loader: path.resolve('./loaders/test-loader.js'),
+            options: {
+              name: 'xes',
+            }
+          }
         ]
       }
     ]
